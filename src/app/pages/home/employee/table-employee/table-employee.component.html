@@ -1,0 +1,66 @@
+<div class="container-fluid mt--7">
+  <div class="row mt-5">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-header border-0">
+          <div class="row align-items-center">
+            <div class="col">
+              <h3 class="mb-0">Employee List</h3>
+            </div>
+            <div class="col">
+              <app-search-employee (searchTextChanged)="onSearchTextEntered($event)"></app-search-employee>
+            </div>
+            <div class="col text-right">
+              <a routerLink="/form" class="btn btn-sm btn-primary">Add Employee</a>
+            </div>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <!-- Projects table -->
+          <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Username</th>
+              <th scope="col">FirstName</th>
+              <th scope="col">Lastname</th>
+              <th scope="col">Email</th>
+              <th scope="col">Birthdate</th>
+              <th scope="col">Basic Salary</th>
+              <th scope="col">Status</th>
+              <th scope="col">Group</th>
+              <th scope="col">Description</th>
+              <th scope="col">Action</th>
+            </tr>
+            </thead>
+            <tbody *ngFor="let emp of employees | slice: lowValue : highValue">
+            <tr *ngIf="searchText === '' || emp.username.toLowerCase().includes(searchText) || emp.firstName.toLowerCase().includes(searchText) || emp.lastName.toLowerCase().includes(searchText)">
+              <td>{{emp.id}}</td>
+              <td>{{emp.username}}</td>
+              <td>{{emp.firstName}}</td>
+              <td>{{emp.lastName}}</td>
+              <td>{{emp.email}}</td>
+              <td>{{emp.birthDate}}</td>
+              <td>{{emp.basicSalary}}</td>
+              <td>{{emp.status}}</td>
+              <td>{{emp.group}}</td>
+              <td>{{emp.description}}</td>
+              <td>
+                <button type="submit" class="btn bg-blue text-white btn-sm" routerLink="/employee/{{emp.id}}">Detail</button>
+                <button type="submit" class="btn bg-yellow text-white btn-sm" (click)="clickEdit()" ngbTooltip="Will disappear in 5s">Edit</button>
+                <button type="submit" class="btn bg-red text-white btn-sm" (click)="clickDelete()" ngbTooltip="Will disappear in 5s">Delete</button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <mat-paginator
+        [length]="employees.length"
+        [pageSize]="pageSize"
+        (page)="getPaginateEmployee($event)"
+      >
+      </mat-paginator>
+    </div>
+  </div>
+</div>

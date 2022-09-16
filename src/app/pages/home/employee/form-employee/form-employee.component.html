@@ -1,0 +1,166 @@
+<div class="card shadow rounded m-5 p-5" >
+  <div class="container">
+    <h1 class="display-4">Form add employee</h1>
+    <form [formGroup]="employeeForm" (ngSubmit)="onSubmitEmployee()">
+      <div class="form-group">
+        <label>Username</label>
+
+        <!--Input Username-->
+        <input
+          type="text"
+          class="form-control {{ isFieldValid(field.USERNAME)}}"
+          placeholder="Username"
+          formControlName="{{field.USERNAME}}"
+        >
+        <!--Username Validation-->
+        <app-validation-message
+          [control]="employeeForm.get(field.USERNAME)"
+          [field]="field.USERNAME">
+
+        </app-validation-message>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label>First Name</label>
+
+          <!--Input Firstname-->
+          <input
+            type="text"
+            class="form-control {{isFieldValid(field.FIRSTNAME)}}"
+            placeholder="First Name"
+            formControlName="{{field.FIRSTNAME}}"
+          >
+          <!--Firstname Validation-->
+          <app-validation-message
+            [control]="employeeForm.get(field.FIRSTNAME)"
+            [field]="field.FIRSTNAME"
+          >
+          </app-validation-message>
+        </div>
+
+        <div class="form-group col-md-6">
+          <label>Last Name</label>
+
+          <!--Input Lastname-->
+          <input
+            type="text"
+            class="form-control {{isFieldValid(field.LASTNAME)}}"
+            placeholder="Last Name"
+            formControlName="{{field.LASTNAME}}"
+          >
+          <!--Lastname Validation-->
+          <app-validation-message
+            [control]="employeeForm.get(field.LASTNAME)"
+            [field]="field.LASTNAME"
+          >
+          </app-validation-message>
+        </div>
+
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <!--Input Email-->
+        <input
+          type="email"
+          class="form-control {{isFieldValid(field.EMAIL)}}"
+          placeholder="Email"
+          formControlName="{{field.EMAIL}}"
+        >
+        <!--Email Validation-->
+        <app-validation-message
+          [control]="employeeForm.get(field.EMAIL)"
+          [field]="field.EMAIL"
+        >
+        </app-validation-message>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label>Birthdate</label>
+          <!--Input birthdate-->
+          <input
+            type="date"
+            class="form-control {{isFieldValid(field.BIRTHDATE)}}"
+            placeholder="First Name"
+            formControlName="{{field.BIRTHDATE}}"
+          >
+          <!--Birthdate Validation-->
+          <app-validation-message
+            [control]="employeeForm.get(field.BIRTHDATE)"
+            [field]="field.BIRTHDATE"
+          >
+          </app-validation-message>
+        </div>
+
+        <div class="form-group col-md-4">
+          <label>Basic Salary</label>
+          <input
+            type="number"
+            class="form-control {{isFieldValid(field.BASICSALARY)}}"
+            placeholder="Basic Salary"
+            formControlName="{{field.BASICSALARY}}"
+          >
+          <!--Basic Salary Validation-->
+          <app-validation-message
+            [control]="employeeForm.get(field.BASICSALARY)"
+            [field]="field.BASICSALARY"
+          >
+          </app-validation-message>
+        </div>
+
+        <div class="form-group col-md-4">
+          <label>Description</label>
+          <!--Input description-->
+          <input
+            type="date"
+            class="form-control {{isFieldValid(field.DESCRIPTION)}}"
+            placeholder="Last Name"
+            formControlName="{{field.DESCRIPTION}}"
+          >
+          <!--Description Validation-->
+          <app-validation-message
+            [control]="employeeForm.get(field.DESCRIPTION)"
+            [field]="field.DESCRIPTION"
+          >
+          </app-validation-message>
+        </div>
+
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputCity">Status</label>
+          <!--Input Status-->
+          <input
+            type="text"
+            class="form-control {{isFieldValid(field.STATUS)}}"
+            id="inputCity"
+            formControlName="{{field.STATUS}}"
+          >
+          <!--Status Validation-->
+          <app-validation-message
+            [control]="employeeForm.get(field.STATUS)"
+            [field]="field.STATUS"
+          >
+          </app-validation-message>
+        </div>
+
+        <div class="form-group col-md-6">
+          <label>Group</label>
+          <select class="form-control {{isFieldValid(field.GROUP)}}" formControlName="{{field.GROUP}}">
+            <option selected>Marketing</option>
+            <option>IT</option>
+            <option>Admin</option>
+            <option>Logistik</option>
+            <option>Social Media</option>
+          </select>
+        </div>
+      </div>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="!employeeForm.valid"
+      >Submit</button>
+      <a routerLink="/" class="btn btn-danger">Cancel</a>
+    </form>
+  </div>
+</div>
