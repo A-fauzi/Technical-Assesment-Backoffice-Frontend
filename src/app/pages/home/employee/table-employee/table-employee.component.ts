@@ -3,6 +3,7 @@ import {EmployeeModel} from "../models/employee.model";
 import {EmployeeService} from "../service/employee.service";
 import {Observer} from "rxjs";
 import Swal from "sweetalert2";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-table-employee',
@@ -20,6 +21,7 @@ export class TableEmployeeComponent implements OnInit {
 
   constructor(
     private readonly employeeService: EmployeeService,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -85,10 +87,22 @@ export class TableEmployeeComponent implements OnInit {
   }
 
   clickEdit() {
-    alert('edit')
+    Swal.fire({
+      icon: 'info',
+      text: 'Edit Employee',
+      toast: true,
+      showConfirmButton: false,
+      position: 'top',
+    })
   }
   clickDelete() {
-    alert('delete')
+    Swal.fire({
+      icon: 'error',
+      text: 'Delete Employee',
+      toast: true,
+      showConfirmButton: false,
+      position: 'top',
+    })
   }
 
 }

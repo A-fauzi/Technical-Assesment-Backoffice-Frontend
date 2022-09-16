@@ -10,6 +10,7 @@ import {FormEmployeeComponent} from "./employee/form-employee/form-employee.comp
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {DetailEmployeeComponent} from "./employee/detail-employee/detail-employee.component";
 import {SearchEmployeeComponent} from "./search-employee/search-employee.component";
+import {ToastrModule} from "ngx-toastr";
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import {SearchEmployeeComponent} from "./search-employee/search-employee.compone
     MatPaginatorModule,
     ReactiveFormsModule,
     FormsModule,
+    ToastrModule.forRoot()
   ]
 })
 export class HomeModule {

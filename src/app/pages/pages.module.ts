@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {PagesRoutingModule} from "./pages.routing.module";
+import {ToastrModule} from "ngx-toastr";
 
 
 
@@ -8,7 +9,8 @@ import {PagesRoutingModule} from "./pages.routing.module";
   declarations: [],
   imports: [
     CommonModule,
-    PagesRoutingModule
+    PagesRoutingModule,
+    ToastrModule.forRoot()
   ]
 })
 export class PagesModule { }
