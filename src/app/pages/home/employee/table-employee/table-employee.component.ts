@@ -95,6 +95,7 @@ export class TableEmployeeComponent implements OnInit {
       background: '#FFFF00',
       showConfirmButton: false,
       position: 'top',
+      timer: 1500
     })
   }
   clickDelete() {
@@ -106,6 +107,7 @@ export class TableEmployeeComponent implements OnInit {
       background: '#ff0000',
       showConfirmButton: false,
       position: 'top',
+      timer: 1500
     })
   }
 
