@@ -37,8 +37,8 @@
             <tr *ngIf="searchText === '' || emp.username.toLowerCase().includes(searchText) || emp.firstName.toLowerCase().includes(searchText) || emp.lastName.toLowerCase().includes(searchText)">
               <td>{{emp.id}}</td>
               <td>{{emp.username}}</td>
-              <td>{{emp.firstName}}</td>
-              <td>{{emp.lastName}}</td>
+              <td>{{emp.firstName | titlecase}}</td>
+              <td>{{emp.lastName | titlecase}}</td>
               <td>{{emp.email}}</td>
               <td>{{emp.birthDate}}</td>
               <td>{{emp.basicSalary}}</td>

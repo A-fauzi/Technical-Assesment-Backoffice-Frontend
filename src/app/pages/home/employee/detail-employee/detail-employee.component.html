@@ -1,5 +1,8 @@
-<div class="card shadow p-5 container" *ngIf="employee">
-  <h2>{{employee.firstName}} {{employee.lastName}}</h2>
+<div class="card shadow p-5 container mt-lg-5" *ngIf="employee">
+  <div class="col text-right">
+    <a routerLink="/" class="btn btn-warning">Back</a>
+  </div>
+  <h2>{{employee.firstName | titlecase}} {{employee.lastName | titlecase}}</h2>
   <div class="row">
     <div class="col-sm-6">
       <img src="assets/img/brand/favicon.png" alt="img" >
@@ -8,7 +11,7 @@
       <h4>Email</h4>
       <p>{{employee.email}}</p>
       <h4>Birthday</h4>
-      <p>{{employee.birthDate}}e</p>
+      <p>{{employee.birthDate}}</p>
     </div>
     <div class="col-sm-6">
       <h4>Basic Salary</h4>
