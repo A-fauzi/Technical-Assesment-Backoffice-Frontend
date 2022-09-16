@@ -91,6 +91,8 @@ export class TableEmployeeComponent implements OnInit {
       icon: 'info',
       text: 'Edit Employee',
       toast: true,
+      color: '#FFFFFF',
+      background: '#FFFF00',
       showConfirmButton: false,
       position: 'top',
     })
@@ -99,7 +101,9 @@ export class TableEmployeeComponent implements OnInit {
     Swal.fire({
       icon: 'error',
       text: 'Delete Employee',
+      color: '#FFFFFF',
       toast: true,
+      background: '#ff0000',
       showConfirmButton: false,
       position: 'top',
     })
